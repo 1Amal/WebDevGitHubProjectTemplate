@@ -1,9 +1,11 @@
 # WebDevGitHubProjectTemplate
+
 GitHub Repository Template for Web Development Projects
 
 This repository provides a comprehensive template for your web development projects, incorporating essential tools for efficient development and maintaining high code quality.
 
 ## Features
+
 Webpack: Bundles JavaScript modules and dependencies for optimized builds.
 HtmlWebpackPlugin: Automatically generates HTML files with references to bundled assets.
 ESLint: Lints your JavaScript code, catching errors and enforcing style consistency.
@@ -14,6 +16,7 @@ Getting Started
 Clone this repository:
 
 ## Initial Setup
+
 When creating a new project use Github templates and choose this template to create a repo with this template
 
 Install all dependencies at once:
@@ -27,16 +30,14 @@ Install dependencies individually
 `npm install eslint-config-prettier --save-dev`
 `npm install eslint --save-dev`
 
-
-
-
-
 ## Automatically deploy to Github Pages
 
 ## Automatic build
+
 npx webpack --watch
 
 ## Project Structure
+
 This template includes the following folders and files:
 
 src: Contains the source code for your web application.
@@ -52,7 +53,6 @@ webpack.config.js: Webpack configuration file for bundling JavaScript modules.
 .eslintrc.js: ESLint configuration file for linting rules.
 .prettierrc.js: Prettier configuration file for formatting rules.
 Note: The public folder is not strictly required but can be helpful during development with a development server.
-
 
 ESLint: During development, consider running ESLint automatically on file changes to catch errors and style inconsistencies early on. You can integrate it with your development server or use a linting tool like ESLint CLI.
 Prettier: Prettier can be configured to format your code automatically on save or using a script. This ensures consistent code style throughout your project.
