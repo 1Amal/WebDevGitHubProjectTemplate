@@ -30,11 +30,35 @@ Install dependencies individually
 `npm install eslint-config-prettier --save-dev`
 `npm install eslint --save-dev`
 
-## Automatically deploy to Github Pages
+## Manual build
+
+`npm run build`
 
 ## Automatic build
 
-npx webpack --watch
+`npx webpack --watch`
+
+## Automatically deploy to Github Pages
+
+Step 1
+Remove the 'dist' directory from the project’s .gitignore file.
+
+Step 2
+Make sure git knows about your subtree (the subfolder with your site).
+
+`git add dist && git commit -m "Initial dist subtree commit"`
+
+Step 3
+Use subtree push to send it to the gh-pages branch on GitHub.
+
+`git subtree push --prefix dist origin gh-pages`
+Boom. If your folder isn’t called dist, then you’ll need to change that in each of the commands above.
+
+By adding this to the packages.json (Already configured for this repo)
+You can simply push the commit to both the main branch and the gh-pages branch (Git Hub pages will be served from gh-pages branch)
+`"scripts": {"gh-pages": "git subtree push --prefix dist origin gh-pages && git push"}`
+
+`npm run gh-pages`
 
 ## Project Structure
 
@@ -42,12 +66,11 @@ This template includes the following folders and files:
 
 src: Contains the source code for your web application.
 components: Reusable UI components.
-styles: Stylesheets for your application (e.g., CSS, SCSS).
+mainStyleSheet.css: Stylesheet for the application, it is served from the mainJavaScript.js.
 assets: Static assets like images, fonts, etc.
-index.js: The main entry point for your JavaScript application.
+mainJavaScript.js: The main entry point for your JavaScript application.
 index.html: The main HTML template for your application.
 Additional folders can be added based on your project needs (e.g., utils, api).
-public: (Optional) This folder can be used for serving static assets directly by the development server.
 package.json: Manages project dependencies and scripts.
 webpack.config.js: Webpack configuration file for bundling JavaScript modules.
 .eslintrc.js: ESLint configuration file for linting rules.
