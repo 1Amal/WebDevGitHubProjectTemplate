@@ -30,6 +30,10 @@ Install dependencies individually
 `npm install eslint-config-prettier --save-dev`
 `npm install eslint --save-dev`
 
+## Webpack
+This will install the file loader to correctly load images
+`npm install file-loader --save-dev`
+
 ## Manual build
 
 `npm run build`
