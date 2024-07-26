@@ -4,7 +4,7 @@
   "description": "GitHub Repository Template for Web Development Projects",
   "main": "webpack.config.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "jest",
     "build": "webpack",
     "gh-pages": "git subtree push --prefix dist origin gh-pages && git push"
   },
