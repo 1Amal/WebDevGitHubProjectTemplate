@@ -19,16 +19,17 @@ Clone this repository:
 
 When creating a new project use Github templates and choose this template to create a repo with this template
 
-Install all dependencies at once:
-`npm install css-loader eslint webpack html-webpack-plugin prettier eslint-config-prettier --save-dev`
+Install all dependencies at once (Recommended):
+`npm install css-loader eslint webpack jest html-webpack-plugin prettier eslint-config-prettier jest --save-dev`
 
-Install dependencies individually
+Install dependencies individually (Only required if above fails)
 `npm install css-loader --save-dev`
 `npm install html-webpack-plugin --save-dev`
 `npm install html-webpack-plugin --save-dev`
 `npm install prettier --save-dev`
 `npm install eslint-config-prettier --save-dev`
 `npm install eslint --save-dev`
+`npm install jest --save-dev`
 
 ## Webpack
 This will install the file loader to correctly load images
