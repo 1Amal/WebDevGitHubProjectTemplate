@@ -22,6 +22,11 @@ When creating a new project use Github templates and choose this template to cre
 Install all dependencies at once (Recommended):
 `npm install css-loader eslint webpack jest html-webpack-plugin prettier eslint-config-prettier jest --save-dev`
 
+Install Babel, you will need this if you wish to use Import
+By default, the current version of Jest will not recognize ES6 import statements. In order to be able to use ES6 modules for this project you may follow the Jest instructions for using Babel. https://jestjs.io/docs/en/getting-started#using-babel
+
+`npm install --save-dev babel-jest @babel/core @babel/preset-env`
+
 Install dependencies individually (Only required if above fails)
 `npm install css-loader --save-dev`
 `npm install html-webpack-plugin --save-dev`
