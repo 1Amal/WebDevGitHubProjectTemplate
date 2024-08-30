@@ -17,36 +17,54 @@ Clone this repository:
 
 ## Initial Setup
 
+For further information https://www.theodinproject.com/lessons/javascript-webpack
 When creating a new project use Github templates and choose this template to create a repo with this template
 
 Install all dependencies at once (Recommended):
-`npm install css-loader eslint webpack jest html-webpack-plugin prettier eslint-config-prettier jest --save-dev`
+`npm install --save-dev webpack webpack-dev-server html-loader css-loader html-webpack-plugin prettier eslint eslint-config-prettier jest babel-jest @babel/core @babel/preset-env`
 
-Install Babel, you will need this if you wish to use Import
+## Install dependencies individually (Only required if above fails)
+
+`npm install --save-dev webpack`
+`npm install --save-dev webpack-dev-server`
+`npm install --save-dev html-loader`
+`npm install --save-dev css-loader`
+`npm install --save-dev html-webpack-plugin`
+`npm install --save-dev prettier`
+`npm install --save-dev eslint`
+`npm install --save-dev eslint-config-prettier`
+`npm install --save-dev jest`
+`npm install --save-dev babel-jest @babel/core @babel/preset-env`
+
+## Webpack Only
+
+`npm install --save-dev webpack`
+`npm install --save-dev webpack-dev-server`
+`npm install --save-dev html-loader`
+`npm install --save-dev css-loader`
+`npm install --save-dev html-webpack-plugin`
+
+<!-- This will install the file loader to correctly load images
+`npm install file-loader --save-dev` -->
+
+## Install Babel Only
+
+You will need this if you wish to use Import
 By default, the current version of Jest will not recognize ES6 import statements. In order to be able to use ES6 modules for this project you may follow the Jest instructions for using Babel. https://jestjs.io/docs/en/getting-started#using-babel
 
 `npm install --save-dev babel-jest @babel/core @babel/preset-env`
 
-Install dependencies individually (Only required if above fails)
-`npm install css-loader --save-dev`
-`npm install html-webpack-plugin --save-dev`
-`npm install html-webpack-plugin --save-dev`
-`npm install prettier --save-dev`
-`npm install eslint-config-prettier --save-dev`
-`npm install eslint --save-dev`
-`npm install jest --save-dev`
-
-## Webpack
-This will install the file loader to correctly load images
-`npm install file-loader --save-dev`
-
-## Manual build
+## Webpack Manual build
 
 `npm run build`
 
-## Automatic build
+## Webpack Automatic build
 
 `npx webpack --watch`
+
+## Webpack Dev Server
+
+`npx webpack serve`
 
 ## Automatically deploy to Github Pages
 
@@ -76,9 +94,9 @@ This template includes the following folders and files:
 
 src: Contains the source code for your web application.
 components: Reusable UI components.
-mainStyleSheet.css: Stylesheet for the application, it is served from the mainJavaScript.js.
+main-stylesheet.css: Stylesheet for the application, it is served from the main-javascript.js.
 assets: Static assets like images, fonts, etc.
-mainJavaScript.js: The main entry point for your JavaScript application.
+main-javascript.js: The main entry point for your JavaScript application.
 index.html: The main HTML template for your application.
 Additional folders can be added based on your project needs (e.g., utils, api).
 package.json: Manages project dependencies and scripts.
