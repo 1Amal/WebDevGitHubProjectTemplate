@@ -1,118 +1,299 @@
-# WebDevGitHubProjectTemplate
+# Web Development Template
 
-GitHub Repository Template for Web Development Projects
+A lightweight GitHub repository template for creating **web development projects, experiments, prototypes, and learning projects**.
 
-This repository provides a comprehensive template for your web development projects, incorporating essential tools for efficient development and maintaining high code quality.
+This template provides a clean development foundation with common tooling and sensible defaults. Frameworks, libraries, databases, and additional services can be added as required by each project.
 
-## Features
+## 🎯 Purpose
 
-Webpack: Bundles JavaScript modules and dependencies for optimized builds.
-HtmlWebpackPlugin: Automatically generates HTML files with references to bundled assets.
-ESLint: Lints your JavaScript code, catching errors and enforcing style consistency.
-Prettier: Formats your JavaScript code automatically for consistent and readable style.
-Simplified project structure: Easy organization and maintenance of your codebase.
-Supports development workflow: Optional automatic reloading with a development server.
-Getting Started
-Clone this repository:
+Use this template when starting projects involving:
 
-## Initial Setup
+- HTML
 
-For further information https://www.theodinproject.com/lessons/javascript-webpack
-When creating a new project use Github templates and choose this template to create a repo with this template
+- CSS
 
-Install all dependencies at once (Recommended):
-`npm install --save-dev webpack webpack-dev-server html-loader css-loader html-webpack-plugin prettier eslint eslint-config-prettier jest babel-jest @babel/core @babel/preset-env`
+- JavaScript
 
-## Install dependencies individually (Only required if above fails)
+- Node.js
 
-`npm install --save-dev webpack`
-`npm install --save-dev webpack-dev-server`
-`npm install --save-dev html-loader`
-`npm install --save-dev css-loader`
-`npm install --save-dev html-webpack-plugin`
-`npm install --save-dev prettier`
-`npm install --save-dev eslint`
-`npm install --save-dev eslint-config-prettier`
-`npm install --save-dev jest`
-`npm install --save-dev babel-jest @babel/core @babel/preset-env`
+- React
 
-## Webpack Only
+- Next.js
 
-`npm install --save-dev webpack`
-`npm install --save-dev webpack-dev-server`
-`npm install --save-dev html-loader`
-`npm install --save-dev css-loader`
-`npm install --save-dev html-webpack-plugin`
+- PostgreSQL
 
-<!-- This will install the file loader to correctly load images
-`npm install file-loader --save-dev` -->
+The goal is to start with a consistent development environment without filling every project with dependencies it does not need.
 
-## Install Babel Only
+## ✨ Included
 
-You will need this if you wish to use Import
-By default, the current version of Jest will not recognize ES6 import statements. In order to be able to use ES6 modules for this project you may follow the Jest instructions for using Babel. https://jestjs.io/docs/en/getting-started#using-babel
+- ESLint
 
-`npm install --save-dev babel-jest @babel/core @babel/preset-env`
+- Prettier
 
-## Webpack Manual build
+- Node.js configuration
 
-`npm run build`
+- Environment variable support
 
-## Webpack Automatic build
+- GitHub Actions CI
 
-`npx webpack --watch`
+- VS Code configuration
 
-## Webpack Dev Server
+- Common `.gitignore` rules
 
-`npx webpack serve`
+- Basic project structure
 
-## Automatically deploy to Github Pages
+- Documentation space for project-specific notes
 
-Step 1
-Remove the 'dist' directory from the project’s .gitignore file.
+## 🚀 Using the Template
 
-Step 2
-Make sure git knows about your subtree (the subfolder with your site).
+This repository is configured as a **GitHub Template Repository**.
 
-`git add dist && git commit -m "Initial dist subtree commit"`
+To create a new project:
 
-Step 3
-Use subtree push to send it to the gh-pages branch on GitHub.
+1.  Open this repository on GitHub.
 
-`git subtree push --prefix dist origin gh-pages`
-Boom. If your folder isn’t called dist, then you’ll need to change that in each of the commands above.
+2.  Select **Use this template**.
 
-By adding this to the packages.json (Already configured for this repo)
-You can simply push the commit to both the main branch and the gh-pages branch (Git Hub pages will be served from gh-pages branch)
-`"scripts": {"gh-pages": "git subtree push --prefix dist origin gh-pages && git push"}`
+3.  Select **Create a new repository**.
 
-`npm run gh-pages`
+4.  Enter the name of your new project.
 
-## Project Structure
+5.  Create the repository.
 
-This template includes the following folders and files:
+6.  Clone it locally.
 
-src: Contains the source code for your web application.
-components: Reusable UI components.
-main-stylesheet.css: Stylesheet for the application, it is served from the main-javascript.js.
-assets: Static assets like images, fonts, etc.
-main-javascript.js: The main entry point for your JavaScript application.
-index.html: The main HTML template for your application.
-Additional folders can be added based on your project needs (e.g., utils, api).
-package.json: Manages project dependencies and scripts.
-webpack.config.js: Webpack configuration file for bundling JavaScript modules.
-.eslintrc.js: ESLint configuration file for linting rules.
-.prettierrc.js: Prettier configuration file for formatting rules.
-Note: The public folder is not strictly required but can be helpful during development with a development server.
+```bash
+git clone git@github.com:amalk-au/web-development-template.git
+cd web-development-template
+npm install
+```
 
-ESLint: During development, consider running ESLint automatically on file changes to catch errors and style inconsistencies early on. You can integrate it with your development server or use a linting tool like ESLint CLI.
-Prettier: Prettier can be configured to format your code automatically on save or using a script. This ensures consistent code style throughout your project.
-Building for Production
-The specific steps for building a production-ready version of your application may vary depending on your chosen tools and hosting platform. Generally, you'll want to:
+Repositories created from this template are independent projects and do not inherit the template repository's Git history.
 
-Run a build script (often defined in package.json) to:
-Bundle JavaScript modules using Webpack.
-Minify the code (optional) for smaller file sizes.
-Optimize assets (optional) for faster loading.
-Follow the deployment instructions for your chosen hosting platform.
-Remember: This is a comprehensive template. Feel free to customize it further based on your specific needs! Consider adding additional linters or formatters depending on your preferences.
+## 🛠️ Development Workflow
+
+Common commands provided by the template:
+
+```bash
+npm run lint
+npm run format
+npm run format:check
+npm test
+```
+
+The exact commands available may change as project-specific tooling is added.
+
+## 🧱 Starting a Project
+
+The template intentionally provides only the common foundation.
+
+Add technologies according to the needs of the project.
+
+### HTML / CSS / JavaScript
+
+For smaller frontend experiments, work directly with the browser platform without introducing a framework unnecessarily.
+
+### Node.js
+
+For backend applications, APIs, scripts, and other server-side experiments, add the Node.js libraries required by the project.
+
+For example:
+
+```bash
+npm install express
+```
+
+### React
+
+For React projects, add React and the supporting tools required by the application.
+
+Keep the base template framework-agnostic so simple projects do not inherit unnecessary dependencies.
+
+### Next.js
+
+For Next.js applications, use the current Next.js project setup and add Next.js-specific configuration when needed.
+
+### PostgreSQL
+
+For projects that require relational data, PostgreSQL can be added as a local or containerized development service.
+
+Keep database credentials and other secrets outside source control.
+
+## 🔐 Environment Variables & Secrets
+
+Never commit passwords, API keys, access tokens, private keys, or other secrets.
+
+Use:
+
+```text
+.env
+```
+
+for local configuration and:
+
+```text
+.env.example
+```
+
+for a safe template that contains variable names but no real credentials.
+
+Example:
+
+```env
+DATABASE_URL=
+API_KEY=
+JWT_SECRET=
+```
+
+The real `.env` file is excluded from Git.
+
+## 🧪 Testing
+
+Add testing tools according to the needs of each project.
+
+Possible tools include:
+
+- Jest
+
+- Vitest
+
+- React Testing Library
+
+- Playwright
+
+Testing is intentionally not tied to a single framework.
+
+## 🗂️ Project Structure
+
+A typical project may look like:
+
+```text
+.
+├── .github/
+│   └── workflows/
+├── .vscode/
+├── docs/
+├── src/
+├── tests/
+├── .env.example
+├── .editorconfig
+├── .gitignore
+├── .nvmrc
+├── eslint.config.js
+├── package.json
+├── prettier.config.js
+└── README.md
+```
+
+Projects can evolve their own structure as complexity increases.
+
+For example:
+
+```text
+src/
+├── components/
+├── features/
+├── hooks/
+├── services/
+├── styles/
+└── utils/
+```
+
+## ✅ Code Quality
+
+### ESLint
+
+Run the linter with:
+
+```bash
+npm run lint
+```
+
+### Prettier
+
+Format the project with:
+
+```bash
+npm run format
+```
+
+Check formatting without modifying files:
+
+```bash
+npm run format:check
+```
+
+## 🤖 Continuous Integration
+
+The template includes a GitHub Actions workflow that can be used to validate projects automatically.
+
+CI can be extended to include:
+
+- Dependency installation
+
+- Linting
+
+- Formatting checks
+
+- Tests
+
+- Production builds
+
+## 📝 Documentation
+
+Use the `docs/` directory for project-specific notes and technical documentation.
+
+For example:
+
+```text
+docs/
+├── javascript.md
+├── node.md
+├── react.md
+├── nextjs.md
+└── postgresql.md
+```
+
+These documents can contain:
+
+- Setup instructions
+
+- Learning notes
+
+- Architecture decisions
+
+- Useful commands
+
+- Troubleshooting notes
+
+- Technical references
+
+## 📚 Recommended Resources
+
+- [MDN Web Docs](https://developer.mozilla.org/)
+
+- [Node.js Documentation](https://nodejs.org/docs/latest/api/)
+
+- [React Documentation](https://react.dev/)
+
+- [Next.js Documentation](https://nextjs.org/docs)
+
+- [PostgreSQL Documentation](https://www.postgresql.org/docs/)
+
+- [TypeScript Documentation](https://www.typescriptlang.org/docs/)
+
+- [The Odin Project](https://www.theodinproject.com/)
+
+## 💡 Guiding Principle
+
+This template is intentionally **minimal and adaptable**.
+
+Start with a clean foundation, then add only the technologies and dependencies the project actually needs.
+
+> **Build the foundation once. Experiment freely. Keep each project independent.**
+
+---
+
+### Repository
+
+**GitHub:** [amalk-au/web-development-template](https://github.com/amalk-au/web-development-template)
