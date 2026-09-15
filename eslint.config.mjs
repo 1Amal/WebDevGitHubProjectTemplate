@@ -1,6 +1,7 @@
 import eslint from "@eslint/js";
+import tseslint from "typescript-eslint";
 
-export default [
+export default tseslint.config(
   {
     ignores: [
       "node_modules/**",
@@ -19,15 +20,18 @@ export default [
 
   eslint.configs.recommended,
 
-  {
-    languageOptions: {
-      ecmaVersion: "latest",
-      sourceType: "module",
-    },
+  ...tseslint.configs.recommended,
 
+  {
     rules: {
       "no-console": "off",
-      "no-unused-vars": ["warn", { argsIgnorePattern: "^_" }],
+      "@typescript-eslint/no-unused-vars": [
+        "warn",
+        {
+          argsIgnorePattern: "^_",
+          varsIgnorePattern: "^_",
+        },
+      ],
     },
   },
-];
+);
