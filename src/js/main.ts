@@ -2,4 +2,4 @@
  * Main application entry point.
  */
 
-console.log("Application initialized.");
+console.log('Application initialized.');

@@ -1,20 +1,20 @@
-import eslint from "@eslint/js";
-import tseslint from "typescript-eslint";
+import eslint from '@eslint/js';
+import tseslint from 'typescript-eslint';
 
 export default tseslint.config(
   {
     ignores: [
-      "node_modules/**",
-      "dist/**",
-      "build/**",
-      "coverage/**",
-      ".next/**",
-      "out/**",
-      ".nuxt/**",
-      ".svelte-kit/**",
-      ".cache/**",
-      ".parcel-cache/**",
-      ".vite/**",
+      'node_modules/**',
+      'dist/**',
+      'build/**',
+      'coverage/**',
+      '.next/**',
+      'out/**',
+      '.nuxt/**',
+      '.svelte-kit/**',
+      '.cache/**',
+      '.parcel-cache/**',
+      '.vite/**',
     ],
   },
 
@@ -24,12 +24,12 @@ export default tseslint.config(
 
   {
     rules: {
-      "no-console": "off",
-      "@typescript-eslint/no-unused-vars": [
-        "warn",
+      'no-console': 'off',
+      '@typescript-eslint/no-unused-vars': [
+        'warn',
         {
-          argsIgnorePattern: "^_",
-          varsIgnorePattern: "^_",
+          argsIgnorePattern: '^_',
+          varsIgnorePattern: '^_',
         },
       ],
     },
