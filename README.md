@@ -6,7 +6,7 @@ The template provides a consistent development foundation with essential tooling
 
 ## 🎯 Purpose
 
-Use this template when starting projects involving:
+Use this template as a starting point for projects involving:
 
 - HTML
 
@@ -34,9 +34,11 @@ The goal is to provide a consistent starting point without forcing every project
 
 - **Prettier** for consistent formatting
 
-- **Vitest** for optional testing
+- **Vitest** for testing
 
 - **EditorConfig** for consistent editor settings
+
+- **`serve`** for local development of static frontend projects
 
 - **Environment variable support**
 
@@ -44,7 +46,7 @@ The goal is to provide a consistent starting point without forcing every project
 
 - **VS Code configuration**
 
-- **Common `.gitignore` rules**
+- Common `.gitignore` rules
 
 - Basic project structure
 
@@ -95,6 +97,7 @@ Repositories created from this template are independent projects and do not inhe
 Common commands provided by the template:
 
 ```bash
+pnpm dev
 pnpm lint
 pnpm format
 pnpm format:check
@@ -103,7 +106,21 @@ pnpm test:watch
 pnpm test:coverage
 ```
 
-The available scripts may evolve as project-specific tooling is added.
+### Local Development Server
+
+For vanilla HTML, CSS, and JavaScript projects, use:
+
+```bash
+pnpm dev
+```
+
+This starts a local HTTP server for the `src/` directory.
+
+Open the local URL displayed in the terminal.
+
+> Do not open `src/index.html` directly with `file://`. ES modules and other browser features are intended to run through a local HTTP server.
+
+Frameworks such as React and Next.js should use their own development servers once those technologies are added to a project.
 
 ## 🧱 Starting a Project
 
@@ -115,14 +132,36 @@ Add technologies according to the requirements of each project.
 
 For smaller frontend experiments, work directly with the browser platform without introducing a framework unnecessarily.
 
-A simple project may use:
+The default frontend structure is:
 
 ```text
 src/
-├── index.html
-├── main.js
-└── styles.css
+├── assets/
+├── css/
+├── js/
+└── index.html
 ```
+
+A typical project may grow into:
+
+```text
+src/
+├── assets/
+│   ├── images/
+│   ├── icons/
+│   └── fonts/
+├── css/
+│   ├── main.css
+│   └── ...
+├── js/
+│   ├── main.js
+│   ├── components/
+│   ├── services/
+│   └── utils/
+└── index.html
+```
+
+Keep the structure as simple as the project allows.
 
 ### Node.js
 
@@ -180,11 +219,11 @@ The real `.env` file is excluded from Git.
 
 ## 🧪 Testing
 
-Testing is intentionally flexible and should be selected according to the project.
+Testing should be selected according to the needs of each project.
 
-The base template includes **Vitest** as a lightweight default for projects that need a test runner.
+The base template includes **Vitest** as the default test runner.
 
-Other useful testing tools include:
+Common testing tools that can be added as required include:
 
 - Jest
 
@@ -193,6 +232,24 @@ Other useful testing tools include:
 - Playwright
 
 Choose the tools that best fit the application rather than adding every testing framework by default.
+
+Run the existing test suite with:
+
+```bash
+pnpm test
+```
+
+Run tests in watch mode:
+
+```bash
+pnpm test:watch
+```
+
+Generate a coverage report:
+
+```bash
+pnpm test:coverage
+```
 
 ## 🗂️ Project Structure
 
@@ -209,6 +266,10 @@ A typical project created from this template may look like:
 ├── docs/
 │   └── README.md
 ├── src/
+│   ├── assets/
+│   ├── css/
+│   ├── js/
+│   └── index.html
 ├── tests/
 ├── .env.example
 ├── .editorconfig
@@ -243,7 +304,7 @@ The structure should reflect the needs of the application rather than following 
 
 ESLint helps identify potential problems and enforce code-quality rules.
 
-Run:
+Run the linter with:
 
 ```bash
 pnpm lint
