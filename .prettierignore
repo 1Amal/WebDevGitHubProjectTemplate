@@ -1,0 +1,12 @@
+node_modules/
+dist/
+build/
+coverage/
+.next/
+out/
+.nuxt/
+.svelte-kit/
+.cache/
+.parcel-cache/
+.vite/
+.git/
