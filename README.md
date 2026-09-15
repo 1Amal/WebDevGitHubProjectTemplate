@@ -124,13 +124,13 @@ pnpm dev
 
 This starts the Vite development server.
 
-Open the local URL displayed in the terminal, normally something similar to:
+Open the local URL displayed in the terminal, normally similar to:
 
 ```text
 http://localhost:5173
 ```
 
-Do not open `src/index.html` directly with `file://`. ES modules and other browser features are intended to run through a local HTTP development server.
+Do not open `index.html` directly with `file://`. Modern browser features such as ES modules are intended to run through a local HTTP development server.
 
 Projects using frameworks such as React or Next.js can use their own development server once those technologies are introduced.
 
@@ -183,30 +183,32 @@ For smaller frontend experiments, work directly with the browser platform withou
 The default frontend structure is:
 
 ```text
-src/
-├── assets/
-├── css/
-├── js/
-└── index.html
+.
+├── index.html
+└── src/
+    ├── assets/
+    ├── css/
+    └── js/
 ```
 
 A typical project may grow into:
 
 ```text
-src/
-├── assets/
-│   ├── images/
-│   ├── icons/
-│   └── fonts/
-├── css/
-│   ├── main.css
-│   └── ...
-├── js/
-│   ├── main.ts
-│   ├── components/
-│   ├── services/
-│   └── utils/
-└── index.html
+.
+├── index.html
+└── src/
+    ├── assets/
+    │   ├── images/
+    │   ├── icons/
+    │   └── fonts/
+    ├── css/
+    │   ├── main.css
+    │   └── ...
+    └── js/
+        ├── main.ts
+        ├── components/
+        ├── services/
+        └── utils/
 ```
 
 Keep the structure as simple as the project allows.
@@ -318,9 +320,8 @@ A typical project created from this template may look like:
 │   ├── assets/
 │   ├── css/
 │   │   └── main.css
-│   ├── js/
-│   │   └── main.ts
-│   └── index.html
+│   └── js/
+│       └── main.ts
 ├── tests/
 │   └── example.test.ts
 ├── .env.example
@@ -329,6 +330,7 @@ A typical project created from this template may look like:
 ├── .nvmrc
 ├── .prettierignore
 ├── eslint.config.mjs
+├── index.html
 ├── package.json
 ├── pnpm-lock.yaml
 ├── prettier.config.mjs
