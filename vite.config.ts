@@ -1,7 +1,12 @@
-import { defineConfig } from "vite";
+import { defineConfig } from "vitest/config";
 
 export default defineConfig({
-  build: {
-    sourcemap: false,
+  test: {
+    environment: "node",
+    globals: false,
+    coverage: {
+      provider: "v8",
+      reporter: ["text", "html"],
+    },
   },
 });
