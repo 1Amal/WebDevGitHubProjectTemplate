@@ -1,8 +1,8 @@
 # Web Development Template
 
-A lightweight GitHub repository template for creating **web development projects, experiments, prototypes, and learning projects**.
+A lightweight **GitHub repository template** for creating web development projects, experiments, prototypes, and learning projects.
 
-This template provides a clean development foundation with common tooling and sensible defaults. Frameworks, libraries, databases, and additional services can be added as required by each project.
+The template provides a consistent development foundation with essential tooling and sensible defaults. Frameworks, libraries, databases, and additional services can be added as required by each project.
 
 ## 🎯 Purpose
 
@@ -22,23 +22,29 @@ Use this template when starting projects involving:
 
 - PostgreSQL
 
-The goal is to start with a consistent development environment without filling every project with dependencies it does not need.
+The goal is to provide a consistent starting point without forcing every project to use the same framework, architecture, or dependencies.
 
 ## ✨ Included
 
-- ESLint
+- **Node.js 24**
 
-- Prettier
+- **pnpm** package manager
 
-- Node.js configuration
+- **ESLint** for code quality
 
-- Environment variable support
+- **Prettier** for consistent formatting
 
-- GitHub Actions CI
+- **Vitest** for optional testing
 
-- VS Code configuration
+- **EditorConfig** for consistent editor settings
 
-- Common `.gitignore` rules
+- **Environment variable support**
+
+- **GitHub Actions CI**
+
+- **VS Code configuration**
+
+- **Common `.gitignore` rules**
 
 - Basic project structure
 
@@ -60,12 +66,26 @@ To create a new project:
 
 5.  Create the repository.
 
-6.  Clone it locally.
+6.  Clone the new repository locally.
 
 ```bash
-git clone git@github.com:amalk-au/web-development-template.git
-cd web-development-template
-npm install
+git clone git@github.com:YOUR-USERNAME/YOUR-NEW-REPOSITORY.git
+cd YOUR-NEW-REPOSITORY
+```
+
+The template uses **Node.js 24** and **pnpm**.
+
+Verify your environment:
+
+```bash
+node --version
+pnpm --version
+```
+
+Install dependencies:
+
+```bash
+pnpm install
 ```
 
 Repositories created from this template are independent projects and do not inherit the template repository's Git history.
@@ -75,43 +95,54 @@ Repositories created from this template are independent projects and do not inhe
 Common commands provided by the template:
 
 ```bash
-npm run lint
-npm run format
-npm run format:check
-npm test
+pnpm lint
+pnpm format
+pnpm format:check
+pnpm test
+pnpm test:watch
+pnpm test:coverage
 ```
 
-The exact commands available may change as project-specific tooling is added.
+The available scripts may evolve as project-specific tooling is added.
 
 ## 🧱 Starting a Project
 
 The template intentionally provides only the common foundation.
 
-Add technologies according to the needs of the project.
+Add technologies according to the requirements of each project.
 
 ### HTML / CSS / JavaScript
 
 For smaller frontend experiments, work directly with the browser platform without introducing a framework unnecessarily.
 
+A simple project may use:
+
+```text
+src/
+├── index.html
+├── main.js
+└── styles.css
+```
+
 ### Node.js
 
-For backend applications, APIs, scripts, and other server-side experiments, add the Node.js libraries required by the project.
+For backend applications, APIs, command-line tools, and server-side experiments, add the libraries required by the project.
 
 For example:
 
 ```bash
-npm install express
+pnpm add express
 ```
 
 ### React
 
-For React projects, add React and the supporting tools required by the application.
+For React projects, add React and the supporting tooling required by the application.
 
 Keep the base template framework-agnostic so simple projects do not inherit unnecessary dependencies.
 
 ### Next.js
 
-For Next.js applications, use the current Next.js project setup and add Next.js-specific configuration when needed.
+For Next.js applications, use the current Next.js project setup and add Next.js-specific dependencies and configuration when needed.
 
 ### PostgreSQL
 
@@ -135,7 +166,7 @@ for local configuration and:
 .env.example
 ```
 
-for a safe template that contains variable names but no real credentials.
+for a safe template containing variable names without real credentials.
 
 Example:
 
@@ -149,45 +180,50 @@ The real `.env` file is excluded from Git.
 
 ## 🧪 Testing
 
-Add testing tools according to the needs of each project.
+Testing is intentionally flexible and should be selected according to the project.
 
-Possible tools include:
+The base template includes **Vitest** as a lightweight default for projects that need a test runner.
+
+Other useful testing tools include:
 
 - Jest
-
-- Vitest
 
 - React Testing Library
 
 - Playwright
 
-Testing is intentionally not tied to a single framework.
+Choose the tools that best fit the application rather than adding every testing framework by default.
 
 ## 🗂️ Project Structure
 
-A typical project may look like:
+A typical project created from this template may look like:
 
 ```text
 .
 ├── .github/
 │   └── workflows/
+│       └── ci.yml
 ├── .vscode/
+│   ├── extensions.json
+│   └── settings.json
 ├── docs/
+│   └── README.md
 ├── src/
 ├── tests/
 ├── .env.example
 ├── .editorconfig
 ├── .gitignore
 ├── .nvmrc
-├── eslint.config.js
+├── eslint.config.mjs
 ├── package.json
-├── prettier.config.js
+├── pnpm-lock.yaml
+├── prettier.config.mjs
 └── README.md
 ```
 
 Projects can evolve their own structure as complexity increases.
 
-For example:
+For example, a larger application might organize source code as:
 
 ```text
 src/
@@ -199,35 +235,57 @@ src/
 └── utils/
 ```
 
+The structure should reflect the needs of the application rather than following a fixed convention.
+
 ## ✅ Code Quality
 
 ### ESLint
 
-Run the linter with:
+ESLint helps identify potential problems and enforce code-quality rules.
+
+Run:
 
 ```bash
-npm run lint
+pnpm lint
 ```
 
 ### Prettier
 
-Format the project with:
+Prettier keeps formatting consistent across the project.
+
+Format the project:
 
 ```bash
-npm run format
+pnpm format
 ```
 
 Check formatting without modifying files:
 
 ```bash
-npm run format:check
+pnpm format:check
 ```
+
+### EditorConfig
+
+EditorConfig provides consistent basic editor behaviour across different development environments.
+
+The project includes an `.editorconfig` file defining conventions such as:
+
+- UTF-8 encoding
+
+- LF line endings
+
+- Spaces for indentation
+
+- Final newline
+
+- Trailing whitespace handling
 
 ## 🤖 Continuous Integration
 
-The template includes a GitHub Actions workflow that can be used to validate projects automatically.
+The template includes a GitHub Actions workflow for basic project validation.
 
-CI can be extended to include:
+The CI workflow can be extended to include:
 
 - Dependency installation
 
@@ -235,9 +293,13 @@ CI can be extended to include:
 
 - Formatting checks
 
-- Tests
+- Unit tests
+
+- Integration tests
 
 - Production builds
+
+The goal is to catch problems automatically before changes are merged.
 
 ## 📝 Documentation
 
@@ -254,7 +316,7 @@ docs/
 └── postgresql.md
 ```
 
-These documents can contain:
+Documentation can contain:
 
 - Setup instructions
 
@@ -273,6 +335,8 @@ These documents can contain:
 - [MDN Web Docs](https://developer.mozilla.org/)
 
 - [Node.js Documentation](https://nodejs.org/docs/latest/api/)
+
+- [pnpm Documentation](https://pnpm.io/)
 
 - [React Documentation](https://react.dev/)
 
