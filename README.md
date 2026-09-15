@@ -14,6 +14,8 @@ Use this template as a starting point for projects involving:
 
 - JavaScript
 
+- TypeScript
+
 - Node.js
 
 - React
@@ -30,15 +32,17 @@ The goal is to provide a consistent starting point without forcing every project
 
 - **pnpm** package manager
 
-- **ESLint** for code quality
+- **TypeScript**
+
+- **Vite** for frontend development and production builds
+
+- **ESLint** and **typescript-eslint** for code quality
 
 - **Prettier** for consistent formatting
 
 - **Vitest** for testing
 
 - **EditorConfig** for consistent editor settings
-
-- **`serve`** for local development of static frontend projects
 
 - **Environment variable support**
 
@@ -98,29 +102,73 @@ Common commands provided by the template:
 
 ```bash
 pnpm dev
+pnpm typecheck
 pnpm lint
 pnpm format
 pnpm format:check
 pnpm test
 pnpm test:watch
 pnpm test:coverage
+pnpm build
+pnpm preview
+pnpm security:audit
 ```
 
-### Local Development Server
+### Local Development
 
-For vanilla HTML, CSS, and JavaScript projects, use:
+For frontend projects using Vite:
 
 ```bash
 pnpm dev
 ```
 
-This starts a local HTTP server for the `src/` directory.
+This starts the Vite development server.
 
-Open the local URL displayed in the terminal.
+Open the local URL displayed in the terminal, normally something similar to:
 
-> Do not open `src/index.html` directly with `file://`. ES modules and other browser features are intended to run through a local HTTP server.
+```text
+http://localhost:5173
+```
 
-Frameworks such as React and Next.js should use their own development servers once those technologies are added to a project.
+Do not open `src/index.html` directly with `file://`. ES modules and other browser features are intended to run through a local HTTP development server.
+
+Projects using frameworks such as React or Next.js can use their own development server once those technologies are introduced.
+
+### Type Checking
+
+Run TypeScript without generating JavaScript files:
+
+```bash
+pnpm typecheck
+```
+
+The template uses TypeScript for type checking while Vite handles frontend transformation and production bundling.
+
+### Production Build
+
+Create an optimized production build:
+
+```bash
+pnpm build
+```
+
+The generated files are placed in:
+
+```text
+dist/
+```
+
+The `dist/` directory contains the production-ready frontend assets and is excluded from Git.
+
+### Previewing the Production Build
+
+After building:
+
+```bash
+pnpm preview
+```
+
+This starts a local server using the production build so it can be tested before deployment.
 
 ## 🧱 Starting a Project
 
@@ -128,7 +176,7 @@ The template intentionally provides only the common foundation.
 
 Add technologies according to the requirements of each project.
 
-### HTML / CSS / JavaScript
+### HTML / CSS / JavaScript / TypeScript
 
 For smaller frontend experiments, work directly with the browser platform without introducing a framework unnecessarily.
 
@@ -154,7 +202,7 @@ src/
 │   ├── main.css
 │   └── ...
 ├── js/
-│   ├── main.js
+│   ├── main.ts
 │   ├── components/
 │   ├── services/
 │   └── utils/
@@ -265,20 +313,28 @@ A typical project created from this template may look like:
 │   └── settings.json
 ├── docs/
 │   └── README.md
+├── public/
 ├── src/
 │   ├── assets/
 │   ├── css/
+│   │   └── main.css
 │   ├── js/
+│   │   └── main.ts
 │   └── index.html
 ├── tests/
+│   └── example.test.ts
 ├── .env.example
 ├── .editorconfig
 ├── .gitignore
 ├── .nvmrc
+├── .prettierignore
 ├── eslint.config.mjs
 ├── package.json
 ├── pnpm-lock.yaml
 ├── prettier.config.mjs
+├── tsconfig.json
+├── vite.config.ts
+├── vitest.config.ts
 └── README.md
 ```
 
@@ -302,7 +358,7 @@ The structure should reflect the needs of the application rather than following 
 
 ### ESLint
 
-ESLint helps identify potential problems and enforce code-quality rules.
+ESLint and `typescript-eslint` help identify potential problems and enforce code-quality rules.
 
 Run the linter with:
 
@@ -346,21 +402,33 @@ The project includes an `.editorconfig` file defining conventions such as:
 
 The template includes a GitHub Actions workflow for basic project validation.
 
-The CI workflow can be extended to include:
+The CI workflow validates:
 
 - Dependency installation
 
+- Formatting
+
+- Type checking
+
 - Linting
 
-- Formatting checks
-
-- Unit tests
-
-- Integration tests
+- Tests
 
 - Production builds
 
 The goal is to catch problems automatically before changes are merged.
+
+## 🔒 Dependency Security
+
+Run a dependency security audit with:
+
+```bash
+pnpm security:audit
+```
+
+Review reported vulnerabilities before updating or introducing dependencies.
+
+Keep the dependency tree as small as practical and add libraries only when they provide clear value to the project.
 
 ## 📝 Documentation
 
@@ -399,13 +467,15 @@ Documentation can contain:
 
 - [pnpm Documentation](https://pnpm.io/)
 
+- [TypeScript Documentation](https://www.typescriptlang.org/docs/)
+
+- [Vite Documentation](https://vite.dev/)
+
 - [React Documentation](https://react.dev/)
 
 - [Next.js Documentation](https://nextjs.org/docs)
 
 - [PostgreSQL Documentation](https://www.postgresql.org/docs/)
-
-- [TypeScript Documentation](https://www.typescriptlang.org/docs/)
 
 - [The Odin Project](https://www.theodinproject.com/)
 
